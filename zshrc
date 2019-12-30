@@ -7,12 +7,19 @@ alias dl="docker ps -l -q"
 
 # Get container process
 alias dps="docker ps"
-
 # Get process included stop container
-alias dpa="docker ps -a"
+alias dpsa="docker ps -a"
+# Get process use format and make more simple
+alias dpsaf='docker ps -a --format "table {{.ID}} {{.Names}}\t{{.Image}}\t{{.Status}}"'
 
 # Get images
 alias di="docker images"
+
+# Get container
+alias dc='docker container'
+
+# Get network
+alias dnet='docker network'
 
 # Get container IP
 alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
@@ -25,6 +32,13 @@ alias dki="docker run -i -t -P"
 
 # Execute interactive container, e.g., $dex base /bin/bash
 alias dex="docker exec -i -t"
+
+# Alias for docker logs
+alias dlogs='docker logs'
+alias dlogsf='docker logs -f'
+
+# Alias for docker-compose command
+alias dcp='docker-compose'
 
 # Stop all containers
 dstop() { docker stop $(docker ps -a -q); }
