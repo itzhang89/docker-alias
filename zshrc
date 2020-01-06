@@ -49,11 +49,14 @@ drm() {
     echo -n "Are you sure to remove all container?(y/n): "
     read ans
     case $ans in
-        y | Y) docker rm $(docker ps -a -q)
+    y | Y)
+        docker rm $(docker ps -a -q)
         ;;
-        n | N) echo "exit"
+    n | N)
+        echo "exit"
         ;;
-        *) echo "no effect and exit"
+    *)
+        echo "no effect and exit"
         ;;
     esac
 }
@@ -62,7 +65,21 @@ drm() {
 alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 
 # Remove all images
-dri() { docker rmi $(docker images -q); }
+dri() {
+    echo -n "Are you sure to remove all images?(y/n): "
+    read ans
+    case $ans in
+    y | Y)
+        docker rmi $(docker images -q)
+        ;;
+    n | N)
+        echo "exit"
+        ;;
+    *)
+        echo "no effect and exit"
+        ;;
+    esac
+}
 
 # Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build -t=$1 .; }
