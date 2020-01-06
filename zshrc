@@ -44,7 +44,19 @@ alias dcp='docker-compose'
 dstop() { docker stop $(docker ps -a -q); }
 
 # Remove all containers
-drm() { docker rm $(docker ps -a -q); }
+drm() {
+    # read -n1 -p 'Are you sure to remove all container?(y/n)' ans
+    echo -n "Are you sure to remove all container?(y/n): "
+    read ans
+    case $ans in
+        y | Y) docker rm $(docker ps -a -q)
+        ;;
+        n | N) echo "exit"
+        ;;
+        *) echo "no effect and exit"
+        ;;
+    esac
+}
 
 # Stop and Remove all containers
 alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
@@ -52,11 +64,11 @@ alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 # Remove all images
 dri() { docker rmi $(docker images -q); }
 
-# Dockerfile build, e.g., $dbu tcnksm/test 
+# Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build -t=$1 .; }
 
 # Show all alias related docker
-dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
+dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/" | sed "s/['|\']//g" | sort; }
 
 # Bash into running container
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
