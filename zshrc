@@ -13,7 +13,7 @@ alias dpsa="docker ps -a"
 alias dpsaf='docker ps -a --format "table {{.ID}} {{.Names}}\t{{.Image}}\t{{.Status}}"'
 
 # Get images
-alias di="docker images"
+alias di='docker images --format "table {{.Repository}}:{{.Tag}}\t{{.ID}}\t{{.CreatedSince}}\t{{.Size}}"'
 
 # Get container
 alias dc='docker container'
