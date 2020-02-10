@@ -81,6 +81,9 @@ dri() {
     esac
 }
 
+# Delete images
+alias drmi='docker rmi'
+
 # Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build -t=$1 .; }
 
