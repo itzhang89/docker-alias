@@ -24,6 +24,14 @@ alias dnet='docker network'
 # Get container IP
 alias dip="docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 
+# Get all container ip with running
+dips() {
+    for container_name in $(docker ps --format "{{.Names}}"); do
+        container_ip=$(dip $container_name)
+        echo "$container_ip\t$container_name"
+    done
+}
+
 # Run deamonized container, e.g., $dkd base /bin/echo hello
 alias dkd="docker run -d -P"
 
