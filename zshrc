@@ -92,6 +92,9 @@ dri() {
 # Delete images
 alias drmi='docker rmi'
 
+# show resources status
+alias dstats='docker stats'
+
 # Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build -t=$1 .; }
 
