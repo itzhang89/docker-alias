@@ -105,4 +105,4 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/" | sed "s/
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
 # quick start a container by image name or id
-drun() { docker run -it --rm $1 bash; }
+drun() { docker run -it --rm $@ bash; }
