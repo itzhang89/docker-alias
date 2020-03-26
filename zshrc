@@ -9,6 +9,8 @@ alias dl="docker ps -l -q"
 alias dps="docker ps"
 # Get process included stop container
 alias dpsa="docker ps -a"
+# Get process with format
+alias dpsf='docker ps --format "table {{.ID}} {{.Names}}\t{{.Image}}\t{{.Status}}"'
 # Get process use format and make more simple
 alias dpsaf='docker ps -a --format "table {{.ID}} {{.Names}}\t{{.Image}}\t{{.Status}}"'
 
@@ -96,7 +98,7 @@ alias drmi='docker rmi'
 alias dstats='docker stats'
 
 # Dockerfile build, e.g., $dbu tcnksm/test
-dbu() { docker build -t=$1 .; }
+alias dbu='docker build -t'
 
 # Show all alias related docker
 dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/" | sed "s/['|\']//g" | sort; }
