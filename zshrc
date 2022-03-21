@@ -43,6 +43,9 @@ alias dki="docker run -i -t -P"
 # Execute interactive container, e.g., $dex base /bin/bash
 alias dex="docker exec -i -t"
 
+# Execute to recerent interactive container, e.g., $dexr /bin/bash
+alias dexr="docker exec -i -t $(docker ps -l -q)"
+
 # Alias for docker logs
 alias dlogs='docker logs'
 alias dlogsf='docker logs -f'
