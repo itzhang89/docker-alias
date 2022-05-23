@@ -56,23 +56,23 @@ alias dcp='docker-compose'
 # Stop all containers
 dstop() { docker stop $(docker ps -a -q); }
 
-# Remove all containers
-drm() {
-    # read -n1 -p 'Are you sure to remove all container?(y/n)' ans
-    echo -n "Are you sure to remove all container?(y/n): "
-    read ans
-    case $ans in
-    y | Y)
-        docker rm $(docker ps -a -q)
-        ;;
-    n | N)
-        echo "exit"
-        ;;
-    *)
-        echo "no effect and exit"
-        ;;
-    esac
-}
+# # Remove all containers
+# drm() {
+#     # read -n1 -p 'Are you sure to remove all container?(y/n)' ans
+#     echo -n "Are you sure to remove all container?(y/n): "
+#     read ans
+#     case $ans in
+#     y | Y)
+#         docker rm $(docker ps -a -q)
+#         ;;
+#     n | N)
+#         echo "exit"
+#         ;;
+#     *)
+#         echo "no effect and exit"
+#         ;;
+#     esac
+# }
 
 # Stop and Remove all containers
 alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
