@@ -54,7 +54,13 @@ alias dlogsf='docker logs -f'
 alias dcp='docker-compose'
 
 # Stop all containers
-dstop() { docker stop $(docker ps -a -q); }
+dstopa() { docker stop $(docker ps -a -q); }
+
+# Stop one or more running containers
+alias dstop='docker stop'
+
+# quick start a existed container
+alias dstart='docker start'
 
 # # Remove all containers
 # drm() {
