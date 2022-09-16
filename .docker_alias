@@ -47,8 +47,7 @@ alias dex="docker exec -i -t"
 alias dexr="docker exec -i -t $(docker ps -l -q)"
 
 # Alias for docker logs
-alias dlo='docker logs'
-alias dlof='docker logs -f'
+alias dlo='docker logs -f'
 
 # Alias for docker-compose command
 alias dcp='docker-compose'
