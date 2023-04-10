@@ -50,7 +50,7 @@ alias dexr="docker exec -i -t $(docker ps -l -q)"
 alias dlo='docker logs -f'
 
 # Alias for docker-compose command
-alias dcp='docker-compose'
+alias dcp='docker compose'
 
 # Stop all containers
 dstopa() { docker stop $(docker ps -a -q); }
