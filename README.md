@@ -7,7 +7,7 @@ Docker的一些常用的命令 [Fork仓库地址](https://github.com/tcnksm/dock
 ## Install
 
 ```shell
-curl -LO https://raw.githubusercontent.com/yutianaiqingtian/docker-alias/master/.docker_alias
+curl -LO https://raw.githubusercontent.com/itzhang89/docker-alias/master/.docker_alias
 # 下载并且添加到 ～/.bashrc 中
 [ -f ~/.docker_alias ] && source ~/.docker_alias
 ```
